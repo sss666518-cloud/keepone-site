@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep One</title>
+<meta name="description" content="Keep One finds the photos you took of the same moment and picks the best one. You only need to nod.">
+<style>
+:root{
+  --bg:#F7F5F2; --fg:#1C1B19; --fg-dim:#6F6B65; --line:#DEDAD4; --paper:#FFFFFF; --amber:#C98F3A;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121110; --fg:#F2EFEA; --fg-dim:#A8A29A; --line:#39352F; --paper:#F2EFEA; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--fg);
+  font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","PingFang SC","PingFang TC",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;padding:56px 20px 88px}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.brand{font:400 24px/1.2 ui-serif,"New York",Georgia,serif}
+.brand a{color:inherit;text-decoration:none}
+nav{display:flex;gap:6px}
+nav button{
+  background:transparent;border:1px solid var(--line);color:var(--fg-dim);
+  border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;
+}
+nav button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+h1{font:400 34px/1.2 ui-serif,"New York",Georgia,serif;margin:0 0 10px;letter-spacing:-.01em}
+.updated{color:var(--fg-dim);font-size:14px;margin:0 0 28px}
+h2{font-size:18px;margin:36px 0 10px;font-weight:600}
+p{margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:20px}
+li{margin:0 0 8px}
+.lead{font-size:18px}
+.dim{color:var(--fg-dim)}
+.box{border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:0 0 20px}
+.box p:last-child{margin-bottom:0}
+a{color:inherit;text-decoration-color:var(--fg-dim);text-underline-offset:3px}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--fg-dim);font-size:14px}
+footer a{margin-right:16px}
+[data-i18n]{display:none}
+[data-i18n].on{display:block}
+span[data-i18n].on{display:inline}
+/* The product page: a small stack of paper-framed moments, nothing louder. */
+.stack{position:relative;width:176px;height:220px;margin:24px 0 40px 7px}
+.stack div,.stack img{position:absolute;inset:0;width:100%;height:100%;border-radius:7px}
+.stack .far{background:#DDD8D0;transform:translate(7px,-24px) rotate(1deg)}
+.stack .near{background:#E7E3DD;transform:translate(-7px,-12px) rotate(-1.5deg)}
+.stack .front{display:block;object-fit:cover;border:5px solid var(--paper);
+  box-shadow:0 3px 6px rgba(28,27,25,.12)}
+@media (prefers-color-scheme: dark){
+  .stack .far{background:#232120} .stack .near{background:#2A2826}
+}
+@media (max-width:520px){ .wrap{padding:36px 18px 64px} h1{font-size:28px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand"><a href="index.html">Keep One</a></div>
+  <nav aria-label="Language">
+    <button type="button" data-set="en" aria-pressed="true">English</button>
+    <button type="button" data-set="zh" aria-pressed="false">简体中文</button>
+    <button type="button" data-set="tw" aria-pressed="false">繁體中文</button>
+  </nav>
+</header>
+
+<div class="stack" aria-hidden="true"><div class="far"></div><div class="near"></div><img class="front" src="cat.jpg" width="176" height="220" alt=""></div>
+
+<section data-i18n="en" class="on">
+  <h1>It picks the best one.<br>You just nod.</h1>
+  <p class="lead">Ten photos of the cat, the same plate, the same sunset. Keep One puts photos of the same moment together and picks the best one for you.</p>
+  <p class="dim">Tap to keep it, or tap another. The rest wait until you clean up, all at once. Deleted photos stay in Recently Deleted for 30 days.</p>
+
+  <h2>On your iPhone only</h2>
+  <p>Your photos are analyzed on this iPhone. Nothing is uploaded. There is no account and no photo cloud. <a href="privacy.html">Privacy</a></p>
+
+  <h2>Free and Pro</h2>
+  <p>Free: 10 groups a day. Pro adds unlimited groups, accepting every pick at once, and sorting by space to free. <a href="terms.html">Terms</a></p>
+
+  <h2>Help</h2>
+  <p>Write to <a href="mailto:sgbusiness046@gmail.com">sgbusiness046@gmail.com</a>, or use Settings → Feedback in the app.</p>
+</section>
+
+<section data-i18n="zh">
+  <h1>它替你挑好了，<br>你只需要点头。</h1>
+  <p class="lead">猫拍了十张，同一盘菜，同一片晚霞。Keep One 把同一时刻拍的照片放在一起，替你挑出最好的那张。</p>
+  <p class="dim">点一下留下它，或者换一张。其余的照片等你一次性清理。删掉的照片会在「最近删除」保留 30 天。</p>
+
+  <h2>只在你的 iPhone 上</h2>
+  <p>照片只在你的手机上分析，不会上传。没有账户，也没有照片云。<a href="privacy.html#zh">隐私政策</a></p>
+
+  <h2>免费与 Pro</h2>
+  <p>免费：每天 10 组。Pro：不限组数、一键接受全部推荐、按可释放空间排序。<a href="terms.html#zh">条款</a></p>
+
+  <h2>帮助</h2>
+  <p>写信到 <a href="mailto:sgbusiness046@gmail.com">sgbusiness046@gmail.com</a>，或在 App 里打开 设置 → 反馈。</p>
+</section>
+
+<section data-i18n="tw">
+  <h1>它替你挑好了，<br>你只需要點頭。</h1>
+  <p class="lead">貓拍了十張，同一盤菜，同一片晚霞。Keep One 把同一時刻拍的照片放在一起，替你挑出最好的那張。</p>
+  <p class="dim">點一下留下它，或者換一張。其餘的照片等你一次清理。刪掉的照片會在「最近刪除」保留 30 天。</p>
+
+  <h2>只在你的 iPhone 上</h2>
+  <p>照片只在你的手機上分析，不會上傳。沒有帳號，也沒有照片雲端。<a href="privacy.html#tw">隱私權政策</a></p>
+
+  <h2>免費與 Pro</h2>
+  <p>免費：每天 10 組。Pro：不限組數、一鍵接受全部推薦、按可釋放空間排序。<a href="terms.html#tw">條款</a></p>
+
+  <h2>說明</h2>
+  <p>寫信到 <a href="mailto:sgbusiness046@gmail.com">sgbusiness046@gmail.com</a>，或在 App 裡打開 設定 → 意見回饋。</p>
+</section>
+
+<footer>
+  <a href="privacy.html"><span data-i18n="en" class="on">Privacy</span><span data-i18n="zh">隐私政策</span><span data-i18n="tw">隱私權政策</span></a>
+  <a href="terms.html"><span data-i18n="en" class="on">Terms</span><span data-i18n="zh">条款</span><span data-i18n="tw">條款</span></a>
+  <span>© 2026 Keep One</span>
+</footer>
+
+</div>
+<script>
+(function(){
+  // English / 简体中文 / 繁體中文. #zh or #tw in the address picks a language; links to the other
+  // pages keep the one chosen.
+  var buttons = document.querySelectorAll('nav button');
+  var codes = { en: 'en', zh: 'zh-Hans', tw: 'zh-Hant' };
+  function set(lang){
+    document.documentElement.setAttribute('lang', codes[lang]);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      el.classList.toggle('on', el.getAttribute('data-i18n') === lang);
+    });
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang)); });
+    document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach(function(a){
+      a.setAttribute('href', a.getAttribute('href').split('#')[0] + (lang === 'en' ? '' : '#' + lang));
+    });
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  window.addEventListener('hashchange', function(){
+    var lang = location.hash.replace('#', '');
+    if (codes[lang]) set(lang);
+  });
+  var hash = location.hash.replace('#', '');
+  if (codes[hash]) { set(hash); return; }
+  var nav = (navigator.language || 'en').toLowerCase();
+  if (nav.indexOf('zh') === 0) set(/hant|tw|hk|mo/.test(nav) ? 'tw' : 'zh');
+})();
+</script>
+</body>
+</html>
